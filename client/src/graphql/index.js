@@ -13,7 +13,7 @@ const wsLink = new GraphQLWsLink(
   );
   
   const httpLink = createHttpLink({
-    uri: `${process.env.REACT_APP_SERVER_URL}/graphql`
+    uri: `https://${process.env.REACT_APP_SERVER_URL}/graphql`
   })
   
   const authLink = setContext((_, {headers}) => {
