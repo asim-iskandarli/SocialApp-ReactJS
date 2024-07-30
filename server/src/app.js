@@ -64,4 +64,4 @@ app.use(
 );
 
 await new Promise((resolve) => httpServer.listen({ port }, resolve));
-console.log(`🚀 Server ready at ${process.env.CLIENT_URI}:${port}/graphql`);
+console.log(`🚀 Server is running on port ${port}`);
