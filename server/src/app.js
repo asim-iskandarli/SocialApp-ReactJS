@@ -18,7 +18,7 @@ const port = process.env.PORT || 4000
 
 const app = express();
 const corsOptions = {
-    origin: port,
+    origin: process.env.CLIENT_URI,
     credentials: true
 }
 const httpServer = http.createServer(app);
