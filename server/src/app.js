@@ -18,7 +18,7 @@ const port = process.env.PORT || 4000
 
 const app = express();
 const corsOptions = {
-    origin: process.env.CLIENT_URI,
+    origin: [process.env.CLIENT_URI, 'http://localhost:3000'],
     credentials: true
 }
 const httpServer = http.createServer(app);

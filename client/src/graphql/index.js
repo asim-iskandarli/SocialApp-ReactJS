@@ -8,12 +8,14 @@ import { getMainDefinition } from '@apollo/client/utilities';
 
 const wsLink = new GraphQLWsLink(
     createClient({
-      url: `ws://${process.env.REACT_APP_SERVER_URL}/graphql`,
+      // url: `ws://${process.env.REACT_APP_SERVER_URL}/graphql`,
+      url: `ws://localhost:4000/graphql`,
     }),
   );
   
   const httpLink = createHttpLink({
-    uri: `https://${process.env.REACT_APP_SERVER_URL}/graphql`
+    // uri: `https://${process.env.REACT_APP_SERVER_URL}/graphql`
+    uri: `http://localhost:4000/graphql`
   })
   
   const authLink = setContext((_, {headers}) => {
