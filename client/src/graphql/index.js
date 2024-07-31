@@ -8,7 +8,7 @@ import { getMainDefinition } from '@apollo/client/utilities';
 
 const wsLink = new GraphQLWsLink(
     createClient({
-      url: `ws://${process.env.REACT_APP_SERVER_URL}/graphql`,
+      url: `wss://${process.env.REACT_APP_SERVER_URL}/graphql`,
     }),
   );
   
