@@ -12,11 +12,11 @@ import client from './graphql'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <ApolloProvider client={client}>
-    // <Provider store={store}>
+  <ApolloProvider client={client}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    // </Provider>
-  // </ApolloProvider>
+    </Provider>
+  </ApolloProvider>
 );

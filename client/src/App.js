@@ -21,88 +21,85 @@ import { CREATE_MESSAGE_SUB } from './graphql/subscriptions/messageSubs';
 import { updateConversation } from './redux/slices/messageSlice';
 
 function App() {
-  // const { user, loading } = useSelector(state => state.userReducer);
-  // const [offline, setOffline] = useState(false);
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const { user, loading } = useSelector(state => state.userReducer);
+  const [offline, setOffline] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // const [userRefresh] = useLazyQuery(REFRESH_USER, {
-  //   onCompleted: (data) => {
-  //     dispatch(getUser(data.refreshUser))
-  //     dispatch(authLoading(false));
-  //   },
-  //   onError: () => {
-  //     navigate('/signin');
-  //     dispatch(authLoading(false));
-  //   }
-  // });
+  const [userRefresh] = useLazyQuery(REFRESH_USER, {
+    onCompleted: (data) => {
+      dispatch(getUser(data.refreshUser))
+      dispatch(authLoading(false));
+    },
+    onError: () => {
+      navigate('/signin');
+      dispatch(authLoading(false));
+    }
+  });
 
-  // useQuery(GET_POSTS, {
-  //   onCompleted: (data) => {
-  //     dispatch(getPosts(data.getPosts))
-  //     dispatch(postsLoad(false))
-  //   },
-  //   onError: (error) => {
-  //     console.log(error);
-  //     dispatch(postsLoad(false))
-  //   }
-  // })
+  useQuery(GET_POSTS, {
+    onCompleted: (data) => {
+      dispatch(getPosts(data.getPosts))
+      dispatch(postsLoad(false))
+    },
+    onError: (error) => {
+      console.log(error);
+      dispatch(postsLoad(false))
+    }
+  })
 
-  // useSubscription(CREATE_MESSAGE_SUB, {
-  //   onData({ data }) {
-  //     const message = data.data.message;
-  //     dispatch(updateConversation(message));
-  //   }
-  // });
+  useSubscription(CREATE_MESSAGE_SUB, {
+    onData({ data }) {
+      const message = data.data.message;
+      dispatch(updateConversation(message));
+    }
+  });
 
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('userToken');
-  //   if (token) {
-  //     userRefresh({
-  //       variables: {
-  //         token
-  //       }
-  //     })
-  //   } else {
-  //     navigate('/signin');
-  //     dispatch(authLoading(false));
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
+  useEffect(() => {
+    const token = localStorage.getItem('userToken');
+    if (token) {
+      userRefresh({
+        variables: {
+          token
+        }
+      })
+    } else {
+      navigate('/signin');
+      dispatch(authLoading(false));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  // useEffect(() => {
-  //   window.addEventListener("offline", () => {
-  //     setOffline(true);
-  //   });
-  //   window.addEventListener("online", () => {
-  //     setOffline(false);
-  //   });
-  //   return () => {
-  //     window.removeEventListener("offline");
-  //     window.removeEventListener("online");
-  //   }
-  // }, [])
+  useEffect(() => {
+    window.addEventListener("offline", () => {
+      setOffline(true);
+    });
+    window.addEventListener("online", () => {
+      setOffline(false);
+    });
+    return () => {
+      window.removeEventListener("offline");
+      window.removeEventListener("online");
+    }
+  }, [])
 
-  // if (loading) {
-  //   return <PageLoad />
-  // }
+  if (loading) {
+    return <PageLoad />
+  }
 
-  // const loggedin = () => {
-  //   if (!loading) {
-  //     if (user) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   }
-  // }
-
-  
+  const loggedin = () => {
+    if (!loading) {
+      if (user) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
   return (
     <>
-      <h4>Hello World</h4>
-      {/* <GlobalStyle />
+      <GlobalStyle />
       {user && <Navbar />}
       {offline && <OfflineModal />}
       <Routes>
@@ -114,7 +111,7 @@ function App() {
         <Route path='/messages' element={<MessagesPage />} />
         <Route path='/messages/:id' element={<ConversationPage />} />
         <Route path='/*' element={<NotFoundPage />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 }
