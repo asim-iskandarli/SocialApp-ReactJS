@@ -3,22 +3,20 @@ import prisma from '../../config/database.js';
 const postResolver = {
     Query: {
         getPosts: async (_, __, { userId }) => {
-            console.log('get posts')
             if (!userId) throw new Error('You must be logged in.');
             const posts = await prisma.post.findMany({
                 include: {
                     author: true,
                     likes: true,
-                    comments: true,
                 },
                 orderBy: {
                     createdAt: 'desc'
                 }
             });
+
             return posts;
         },
-        getUserPosts: async (_, {authorId}, { userId }) => {
-            console.log('get user posts')
+        getUserPosts: async (_, { authorId }, { userId }) => {
             if (!userId) throw new Error('You must be logged in.');
             const posts = await prisma.post.findMany({
                 where: {
@@ -39,7 +37,7 @@ const postResolver = {
     Mutation: {
         createPost: async (_, { content, authorId }, { userId }) => {
             if (!userId) throw new Error('You must be logged in');
-            if(!content) throw new Eror('Content cannot be left empty')
+            if (!content) throw new Eror('Content cannot be left empty')
             const newPost = await prisma.post.create({
                 data: {
                     content,
@@ -54,7 +52,7 @@ const postResolver = {
         },
         deletePost: async (_, { postId }, { userId }) => {
             if (!userId) throw new Error('You must be logged in.');
-            if(!postId) return;
+            if (!postId) return;
             await prisma.post.delete({
                 where: {
                     id: postId
@@ -98,13 +96,13 @@ const postResolver = {
 
             const existingPost = await prisma.post.findUnique({
                 where: {
-                  id: postId,
+                    id: postId,
                 },
-              });
-        
-              if (!existingPost) {
+            });
+
+            if (!existingPost) {
                 throw new Error("Invalid Post ID");
-              }
+            }
 
             const updatedlikedByIDs = existingPost.likedByIDs.filter((id) => id !== userId);
 
