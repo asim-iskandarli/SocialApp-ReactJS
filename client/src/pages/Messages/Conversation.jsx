@@ -27,9 +27,7 @@ const ConversationPage = () => {
 
   const [getMessages, { loading }] = useLazyQuery(GET_MESSAGES, {
     onCompleted: (data) => {
-      console.log(data);
       const newData = { user: data.getUser, messages: data.getMessages }
-      console.log(newData)
       setConversation(newData);
       dispatch(getConversation(newData));
     },

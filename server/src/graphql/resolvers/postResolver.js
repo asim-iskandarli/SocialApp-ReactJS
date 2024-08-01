@@ -3,6 +3,7 @@ import prisma from '../../config/database.js';
 const postResolver = {
     Query: {
         getPosts: async (_, __, { userId }) => {
+            console.log('get posts')
             if (!userId) throw new Error('You must be logged in.');
             const posts = await prisma.post.findMany({
                 include: {
@@ -17,6 +18,7 @@ const postResolver = {
             return posts;
         },
         getUserPosts: async (_, {authorId}, { userId }) => {
+            console.log('get user posts')
             if (!userId) throw new Error('You must be logged in.');
             const posts = await prisma.post.findMany({
                 where: {
