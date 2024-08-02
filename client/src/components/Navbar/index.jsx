@@ -30,12 +30,12 @@ const NavbarComponent = () => {
                 <Menus>
                     <Menu>
                         <Icon>
-                            <Link to="/">< BiHomeAlt2 size={18} /></Link>
+                            <Link to="/">< BiHomeAlt2 /></Link>
                         </Icon>
                     </Menu>
                     <Menu>
                         <Icon>
-                            <Link to="/messages">< BiMessageSquare size={18} /></Link>
+                            <Link to="/messages">< BiMessageSquare /></Link>
                         </Icon>
                     </Menu>
                     <Menu>
@@ -119,6 +119,7 @@ const LogoutBtn = styled.button`
     justify-content: center;
     gap: 3px;
     cursor: pointer;
+
     &:hover {
         color: var(--danger-hover);
         background-color: var(--danger-hover-bg);

@@ -21,12 +21,12 @@ const SideBarComponent = () => {
             console.log(error);
         }
     });
+
     return (
         <SideBar>
             <SearchUser>
                 <input placeholder='Search' />
             </SearchUser>
-
             <Users>
                 {
                     loading ?
@@ -35,13 +35,11 @@ const SideBarComponent = () => {
                         </LoadUser> :
                         users?.map(user => (
                             <User key={user.id} onClick={() => navigate(`/messages/${user.id}`)}>
-                                <UserCard user={user} />
+                                <UserCard user={user} width={30} height={30} />
                             </User>
                         ))
                 }
             </Users>
-
-
         </SideBar>
 
     )

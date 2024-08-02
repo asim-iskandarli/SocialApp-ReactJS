@@ -142,7 +142,7 @@ export const SearchBtn = styled.button`
 
     @media only screen and (max-width: 768px) {
         width: 50px !important;
-        font-size: 18px;
+        font-size: 14px;
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;

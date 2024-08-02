@@ -26,7 +26,7 @@ export const SideBar = styled.div`
     }
     @media only screen and (max-width: 512px) {
         width: 200px;
-        height: 94vh;
+        height: 92vh;
     }
 `;
 
@@ -93,7 +93,7 @@ export const Messages = styled.div`
     }
 
     @media only screen and (max-width: 512px) {
-        height: 82.5vh;
+        height: 78vh;
     }
 `;
 
@@ -131,6 +131,7 @@ export const Body = styled.div`
     width: 100%;
     height: 220px;
     flex: 1;
+    background-color: #fff;
 `;
 
 export const Footer = styled.div`

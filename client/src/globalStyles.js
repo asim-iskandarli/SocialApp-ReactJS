@@ -31,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
       @media only screen and (max-width: 768px) {
         --width-screen: 85%;
         --font-size: 16px;
+        --input-font-size: 10px;
       }
       @media only screen and (max-width: 512px) {
         --width-screen: 95%;
@@ -88,6 +89,7 @@ export const Icon = styled.div`
     width: 35px;
     height: 35px;
     display: flex;
+    font-size: 18px;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -102,6 +104,10 @@ export const Icon = styled.div`
         height: 35px;
         color: #65676B;
     }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 14px !important;
+      }
 `;
 
 export const ModalBox = styled.div`
