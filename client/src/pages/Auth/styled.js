@@ -32,6 +32,16 @@ export const Container = styled.div`
                 color: #3293b9;
             }
         }
+
+        @media only screen and (max-width: 1024px) {
+            width: 65%;
+        }
+        @media only screen and (max-width: 768px) {
+            width: 75%;
+        }
+        @media only screen and (max-width: 512px) {
+            width: 95%;
+        }
     }
 
 `;

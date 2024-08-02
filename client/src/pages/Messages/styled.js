@@ -5,6 +5,13 @@ export const Container = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+
+    @media only screen and (max-width: 1024px) {
+        width: 95%;
+    }
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const SideBar = styled.div`
@@ -13,6 +20,14 @@ export const SideBar = styled.div`
     overflow-y: auto;
     background-color: #fff;
     border-right: 1px solid #ddd;
+
+    @media only screen and (max-width: 768px) {
+        width: 300px;
+    }
+    @media only screen and (max-width: 512px) {
+        width: 200px;
+        height: 94vh;
+    }
 `;
 
 export const StartConversation = styled.div`
@@ -53,7 +68,7 @@ export const MessagesScreen = styled.div`
 
 export const Messages = styled.div`
     padding: 10px 20px;
-    height: 450px;
+    height: 468px;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -75,6 +90,10 @@ export const Messages = styled.div`
             background-color: #ccc;
             border-radius: 0 20px 20px 20px;
         }
+    }
+
+    @media only screen and (max-width: 512px) {
+        height: 82.5vh;
     }
 `;
 
@@ -110,20 +129,20 @@ export const RightButtons = styled.div`
 
 export const Body = styled.div`
     width: 100%;
-    height: 200px;
+    height: 220px;
     flex: 1;
 `;
 
 export const Footer = styled.div`
-    padding: 10px 20px;
     background-color: #fff;
+    padding: 5px;
     form {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 5px;
         input {
             width: 100%;
-            border: 2px solid #ddd;
+            border: 1px solid #ddd;
         }
     }
     button {

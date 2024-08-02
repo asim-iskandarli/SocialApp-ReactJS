@@ -9,6 +9,11 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
     :root {
+      --width-screen: 45%;
+      --navbar-width: 85%;
+      --font-size: 24px;
+      --input-font-size: 14px;
+
       --primary: #55c2da;
       --primary-hover: #45a1b6;
       --primary-hover-bg: #45a1b631;
@@ -17,15 +22,17 @@ const GlobalStyle = createGlobalStyle`
       --danger-hover-bg: #ce42421e;
       --body-bg: #eee;
 
-      --width-screen: 45%;
-
-      @media only screen and (max-width: 1000px) {
-        --width-screen: 55%;
+      
+      @media only screen and (max-width: 1024px) {
+        --width-screen: 65%;
+        --navbar-width: 95%;
+        --font-size: 18px;
       }
-      @media only screen and (max-width: 850px) {
-        --width-screen: 75%;
+      @media only screen and (max-width: 768px) {
+        --width-screen: 85%;
+        --font-size: 16px;
       }
-      @media only screen and (max-width: 540px) {
+      @media only screen and (max-width: 512px) {
         --width-screen: 95%;
       }
     }
@@ -44,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
         border: 1px solid #eee;
         border-radius: 5px;
         padding-left: 10px;
+        font-size: var(--input-font-size);
     }
 `;
 
@@ -97,7 +105,7 @@ export const Icon = styled.div`
 `;
 
 export const ModalBox = styled.div`
-  width: 40%;
+  width: 400px;
   padding: 1rem;
   border-radius: 1rem;
   background-color: #fff;

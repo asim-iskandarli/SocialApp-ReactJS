@@ -7,11 +7,12 @@ import { BiMessageSquare, BiHomeAlt2 } from 'react-icons/bi'
 import { Icon } from '../../globalStyles';
 import AvatarComponent from '../Avatar';
 import Search from './Search';
+import { IoIosLogOut } from "react-icons/io";
 
 
 const NavbarComponent = () => {
     const dispatch = useDispatch();
-    const {user} = useSelector(state => state.userReducer)
+    const { user } = useSelector(state => state.userReducer)
     const navigate = useNavigate();
     const handlelogout = () => {
         localStorage.removeItem('userToken');
@@ -40,7 +41,7 @@ const NavbarComponent = () => {
                     <Menu>
                         <Link to={`/profile/${user.id}`}><AvatarComponent avatar={user.avatar} width={40} height={40} /></Link>
                     </Menu>
-                    <LogoutBtn onClick={handlelogout}>Logout</LogoutBtn>
+                    <LogoutBtn onClick={handlelogout}><IoIosLogOut fontSize={16}/></LogoutBtn>
                 </Menus>
             </Navbar>
         </NavbarBox>
@@ -50,7 +51,7 @@ const NavbarComponent = () => {
 export default NavbarComponent
 
 const NavbarBox = styled.div`
-    width: 85%;
+    width: var(--navbar-width);
     margin: 0 auto;
     height: 50px;
     background-color: #fff;
@@ -61,7 +62,7 @@ const NavbarBox = styled.div`
 `;
 
 const Navbar = styled.div`
-    width: 85%;
+    width: var(--navbar-width);
     height: 50px;
     padding: 1rem;
     background-color: #fff;
@@ -77,7 +78,11 @@ const Logo = styled.div`
     text-transform: uppercase;
     img {
         width: 50px;
-}
+
+        @media only screen and (max-width: 768px) {
+            width: 30px;
+        }
+    }
 `;
 
 const Menus = styled.div`
@@ -91,6 +96,9 @@ const Menu = styled.div`
     position: relative;
     a {
         color: #464646;
+    }
+    @media only screen and (max-width: 768px) {
+        padding: 3px;
     }
 `;
 
@@ -106,10 +114,25 @@ const LogoutBtn = styled.button`
     font-weight: 600;
     transition: all 0.3s ease;
     margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
     cursor: pointer;
     &:hover {
         color: var(--danger-hover);
         background-color: var(--danger-hover-bg);
     }
-    
+    &:after {
+        content: "Logout";
+    }
+
+    @media only screen and (max-width: 768px) {
+        width: 2rem;
+        font-size: 8px;
+        margin-left: 5px;
+        &:after {
+            content: none;
+        }
+    }
 `

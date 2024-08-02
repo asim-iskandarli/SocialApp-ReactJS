@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const userCard = ({ user }) => {
+const userCard = ({ user, width, height }) => {
     return (
-        <UserCard>
+        <UserCard $width={width} $height={height}>
             <img src={user?.avatar} alt='avatar' />
             <strong>{user?.username || 'Guest'}</strong>
         </UserCard>
@@ -19,7 +19,7 @@ export const UserCard = styled.div`
     gap: 10px;
     padding: 2px;
         img {
-            width: 50px;
-            height: 50px;
+            width: ${({$width}) => $width ? `${$width}px` : '50px' };
+            height: ${({$height}) => $height ? `${$height}px` : '50px' };
         }
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from '../../globalStyles';
 
 export const ProfileContainer = styled.div`
     width: 100%;
@@ -16,9 +17,6 @@ export const Header = styled.div`
     border-radius: 1rem;
     margin-bottom: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    @media only screen and (max-width: 850px) {
-        width: 75%;
-    }
 `;
 
 export const Top = styled.div`
@@ -29,16 +27,16 @@ export const Top = styled.div`
 `;
 
 export const Bottom = styled.div`
-     display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        p {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    p {
          font-size: 12px;
          color: #363636;
          display: flex;
          align-items: flex-end;
          gap: 5px;
-        }
+    }
 `;
 
 export const HeaderLeft = styled.div`
@@ -89,4 +87,9 @@ export const UserLoad = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+export const EditButton = styled(Button)`
+    @media only screen and (max-width: 768px) {
+        width: 70px !important;
+    }
 `

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { Body, Header, HeaderLeft, HeaderRight, NoPost, ProfileContainer, UserInfo, UserLoad, UserPosts, Top, Bottom } from './styled'
+import { Body, Header, HeaderLeft, HeaderRight, NoPost, ProfileContainer, UserInfo, UserLoad, UserPosts, Top, Bottom, EditButton } from './styled'
 import AvatarComponent from '../../components/Avatar'
-import { Button } from '../../globalStyles'
 import PostComponent from '../../components/Post'
 import { useLazyQuery } from '@apollo/client'
 import { GET_USER } from '../../graphql/queries/userQueries'
@@ -81,7 +80,7 @@ const ProfilePage = () => {
                 <HeaderRight>
                   {
                     userData?.id === user.id &&
-                    <Button onClick={() => setEditUser(true)}>Edit</Button>
+                    <EditButton onClick={() => setEditUser(true)}>Edit</EditButton>
                   }
                 </HeaderRight>
               </Top>

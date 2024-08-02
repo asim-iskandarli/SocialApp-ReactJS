@@ -110,13 +110,14 @@ const userResolver = {
                     code: 'BAD_USER_INPUT',
                 }
             });
-            const passwordHash = await bcrypt.hash(password, 10);
+            // const passwordHash = await bcrypt.hash(password, 10);
             const newUser = await prisma.user.create({
                 data: {
                     username,
                     email,
                     fullname,
-                    password: passwordHash,
+                    // password: passwordHash,
+                    password,
                     avatar
                 }
             });
@@ -145,8 +146,13 @@ const userResolver = {
                     code: 'BAD_USER_INPUT',
                 }
             });
-            const passwordMath = await bcrypt.compare(password, user.password);
-            if (!passwordMath) throw new GraphQLError('Invalid credentials', {
+            // const passwordMath = await bcrypt.compare(password, user.password);
+            // if (!passwordMath) throw new GraphQLError('Invalid credentials', {
+            //     extensions: {
+            //         code: 'BAD_USER_INPUT',
+            //     }
+            // });
+            if (password !== user.password) throw new GraphQLError('Invalid credentials', {
                 extensions: {
                     code: 'BAD_USER_INPUT',
                 }
