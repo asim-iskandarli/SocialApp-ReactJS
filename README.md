@@ -1,6 +1,6 @@
 **Mini Social App**
 
-**Live Demo:** [Demo](https://mini-socialapp-q70y.onrender.com) <br/> <br/> 
+**Live Demo:** [Demo](https://mini-socialapp-semy.onrender.com) <br/> <br/> 
 **Screnshot:**![image](https://github.com/asim-iskandarli/mini-socialapp/blob/main/screenshot.gif)
 
 **Used in this project:** <br/> 
